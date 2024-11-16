@@ -1,4 +1,5 @@
 # CS50_Social_Network
+### CS50 Project 4: Network
 
 ## Project Description
 This project is a Twitter-like social networking website where users can create posts, follow other users, and like posts. It was developed as part of the CS50 Web Programming with Python and JavaScript course.
