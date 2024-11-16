@@ -1,0 +1,57 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <H1>following Posts: </H1>
+
+<!--view all post-->
+<div class="all-post">
+    {% for post in post_of_the_page %}
+        <div class="singlepost">
+            <h2><a href="{%  url 'profile' id=post.user.id %}">{{post.user}}</a></h2>
+            <h3>{{post.content}}</h3>
+            <h5> time: {{post.dateofcontent}} </h5>
+            <br>
+        </div>
+    
+    {% endfor %}
+</div>
+
+<!--pagigator-->
+ <div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination d-flex justify-content-center">
+          {%  if post_of_the_page.has_previous  %}
+          <li class="page-item"><a class="page-link" href="?page={{post_of_the_page.previous_page_number}}">Previous</a></li>
+          {%  endif  %}
+          <!--li class="page-item"><a class="page-link" href="?page=1">1</a></li-->
+          {%  if post_of_the_page.has_next  %}
+          <li class="page-item"><a class="page-link" href="?page={{post_of_the_page.next_page_number}}">Next</a></li>
+          {%  endif  %}
+        </ul>
+      </nav>
+ </div>
+
+ <div class="container">
+    <h3>Page: {{post_of_the_page.number}}</h3>
+
+ </div>
+
+ <div class="pagination d-flex justify-content-center">
+    <span class="step-links">
+        {% if post_of_the_page.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ post_of_the_page.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ post_of_the_page.number }} of {{ post_of_the_page.paginator.num_pages }}.
+        </span>
+
+        {% if post_of_the_page.has_next %}
+            <a href="?page={{ post_of_the_page.next_page_number }}">next</a>
+            <a href="?page={{ post_of_the_page.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

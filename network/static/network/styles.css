@@ -1,0 +1,30 @@
+body{
+    background-color: azure;
+    margin: 20px;
+}
+.new-post{
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.all-post{
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+}
+
+.singlepost{
+    border:  1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 10px;
+    
+}
